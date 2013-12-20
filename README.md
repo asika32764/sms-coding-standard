@@ -19,13 +19,13 @@
 
 ### 換行
 
-編輯器請設定成以 `LF` (`\n`) 作為換行字元。請勿使用 Mac 的回車符 `CR` (`\r`) 或 Windows 的 `CRLF` (`\r\n`) 組合。
+編輯器請設定成以 `LF` (\n) 作為換行字元。請勿使用 Mac 的回車符 `CR` (\r) 或 Windows 的 `CRLF` (\r\n) 組合。
 
 Windows 安裝 Git 時，請選擇 `Checkout Windows-style, commit Unix-style line endings` 選項。
 
 ![git-crlf](http://cl.ly/T2xQ/git-crlf.png)
 
-參見： ![Git 在 Windows 平台處理斷行字元 (CRLF) 的注意事項](http://blog.miniasp.com/post/2013/09/15/Git-for-Windows-Line-Ending-Conversion-Notes.aspx)
+參見： [Git 在 Windows 平台處理斷行字元 (CRLF) 的注意事項](http://blog.miniasp.com/post/2013/09/15/Git-for-Windows-Line-Ending-Conversion-Notes.aspx)
 
 
 ## 基礎編輯設定
@@ -210,8 +210,8 @@ switch ($value)
 ```
 
 ``` php
-// for ($i = 0; $i <= count($array); $i++)
 foreach ($array as $i => $value)
+// for ($i = 0; $i <= count($array); $i++)
 {
 	// Do something...
 }
@@ -243,6 +243,37 @@ if ($yoo) {
 ```
 
 有較佳可讀性，雖然可能造成程式碼文件較長。
+
+### 換行
+
+#### 類別、方法與控制結構
+
+在 Allman 風格之下，控制結構與類別方法的大括號前後都不需刻意增加空行，只有方法與方法之間空一行以區隔。
+
+#### 程式邏輯運作過程
+
+編碼過程，建議每一行不同的邏輯控制皆空行，並且使用括號區隔的 Scope 空間上下也需要空行。
+
+若連續變數賦值則不需空行。
+
+範例：
+
+``` php
+if ($avoid)
+{
+	$filter = $this->getState('filter', array());
+	$search = $this->getState('search');
+	$data   = $this->getState('data', array());
+	$table  = $this->getTable();
+
+	$table->bind($data);
+	
+	$table->check();
+	
+	$table->store();
+}
+```
+
 
 ## 類別與其成員宣告
 
@@ -378,7 +409,7 @@ $array = ['a', 'b', ['c', 'd']];
 
 ### 一般函式與方法調用
 
-直接於函式或方法後驗接上括號，不需要空格，以此與控直結構區隔：
+直接於函式或方法後面接上括號，不需要空格，以此與控直結構區隔：
 
 ``` php
 $item = $foo->getItem($pk);

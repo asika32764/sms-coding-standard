@@ -129,6 +129,53 @@ HTML Example:
 - ```.block__element—modifier {…}```
 
 #### More Sophisticated Examples
+
+##### Drop tag names and IDs
+By following BEM (or any other methodology), we no longer need to use tag names and IDs as selectors. In fact, 
+we should never use tag names and IDs, this may result in faster selectors and faster render time.
+
+##### Reuse same semantics block on any tag
+```html
+<div class="block"></div>
+<span class="block"></span>
+<table class="block"></table>
+```
+
+##### CSS Specificity problem solved
+CSS selector has priority rules, that is, by specifity first, then by rule order. Oftenly, 
+overwriting other developers' selector will result like this due to specificity:
+ 
+```css
+#jsn_form_5 .form-actions .form-extra-message {
+  font-size: 1.4em;
+  color: #c25b5b;
+  margin: 6px 0;
+}
+#jsn_form_7 .form-actions .form-extra-message {
+  font-size: 1.4em;
+  color: #c25b5b;
+  margin: 6px 0;
+}
+```
+
+Thanks to the OOCSS methodologies, blocks are independent and decouple with html tags.  
+
+##### LESS
+We may write our less code in nested way:
+```sass
+.block {
+    &__element {
+        &--modifier {
+        }
+    }
+}
+```
+This will output:
+```css
+.block {}
+.block__element {}
+.block__element--modifier {}
+```
  
 #### Ugly?!
  

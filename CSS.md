@@ -28,10 +28,12 @@ A good naming convention will help your and your team [3]
 ### BEM Methodology
 #### Introduction
 BEM - meaning blocks, elements and modifiers - is a front-end naming methodologies introduced by Yandex [2]. The architecture 
-allows you maintaining your project with more flexibility and mantainability in a schematic manner.
+allows you maintaining your project with more flexibility and mantainability in a schematic manner. 
+The point of OOCSS is to tell other developers what piece of markup is doing by looking its name.
+You can easily understand the relationship of a child element and its precedent block.  
 
 #### Blocks
-A block was a part of a page design or layout whose specific and unique meaning was defined either semantically or visually [8]. Block is a visual and functional component of the interface. It is reusable and should be independently existed.
+Block was a part of a page design or layout whose specific and unique meaning was defined either semantically or visually [8]. Block is a visual and functional component of the interface. It is reusable and should be independently existed.
 
 For example, Menu Block, Logo Block, Search Block, Auth Block.
 
@@ -68,10 +70,10 @@ Element is a component part of block. It only exists within block and can not be
  
 For example, Menu block has menu items, heading block has logo element and slogan element.
 
-<img src="images/elements-example.png" alt="Blocks example" style="width: 200px;"/>
+<img src="images/elements-example.png" alt="Elements example" style="width: 200px;"/>
 
 ##### Naming Rule 
-Element use double underline as a prefix. For example ```.block__element``` represents a descendent of ```.block```.
+Element use double underline(__) as a prefix. For example ```.block__element``` represents a descendent of ```.block```.
 
 - ```.button__icon```
 - ```.text-field__label```
@@ -92,7 +94,39 @@ HTML Example:
 ```
 
 #### Modifiers
+ ```Modifier``` in BEM is similar to ```State``` in SMACSS. It is used to defined the state of element or block.
+ Multiple modifiers can be used on the same block simultaneously. 
+ For example, a button block may have multiple states such as enabled, disabled or hover. Skin and theme could also be a modifier: shadowed, bordered etc..
+ 
+ <img src="images/modifiers-example.png" alt="Modifiers example" style="width: 200px;"/>
+
 ##### Naming Rule
+For modifier, we use double hyphens(--) as prefix which was first introduced in this article [MindBEMding][6]. 
+If the name name of that modifier is too long, also separate it with double hyphens. (This could be alter, wait for further discussion.)
+
+- ```.button--theme-green```
+- ```.text-field--disabled```
+- ```.flyout--align--top```
+- ```.heading--dark--background```
+- ```.menu__item--promo```
+
+HTML Example:
+```html
+<ul class="menu">
+  <li class="menu__item--promo">
+    <a href="#">foo</a>
+  </li>
+  <li class="menu__item">
+    <a href="#">bar</a>
+  </li>
+</ul>  
+```
+
+#### Quick Summarize
+- ```.block {…}```
+- ```.block—-modifier {…}``` 
+- ```.block__element {…}```
+- ```.block__element—modifier {…}```
 
 #### More Sophisticated Examples
  

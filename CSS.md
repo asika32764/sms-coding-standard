@@ -63,12 +63,40 @@ HTML Example:
 </ul>  
 ```
 
-##### Elements
+#### Elements
+Element is a component part of block. It only exists within block and can not be used on its own outside of the block.
+ 
+For example, Menu block has menu items, heading block has logo element and slogan element.
 
-##### Modifiers
+<img src="images/elements-example.png" alt="Blocks example" style="width: 200px;"/>
 
-#### Naming Rules
+##### Naming Rule 
+Element use double underline as a prefix. For example ```.block__element``` represents a descendent of ```.block```.
 
+- ```.button__icon```
+- ```.text-field__label```
+- ```.flyout__title```
+- ```.heading__logo```
+- ```.menu__item```
+
+HTML Example:
+```html
+<ul class="menu">
+  <li class="menu__item">
+    <a href="#">foo</a>
+  </li>
+  <li class="menu__item">
+    <a href="#">bar</a>
+  </li>
+</ul>  
+```
+
+#### Modifiers
+##### Naming Rule
+
+#### More Sophisticated Examples
+ 
+#### Ugly?!
  
 Credits
 -------
@@ -79,7 +107,7 @@ Credits
 5. https://github.com/bjankord/CSS-Components-Modifiers-And-Subcomponents-Collection
 6. http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/
 7. http://www.slideshare.net/VarvaraStepanova/bem-it-introduction-to-bem-methodology
-
+8. http://www.smashingmagazine.com/2013/02/21/the-history-of-the-bem-methodology/
 
 [1]: http://philipwalton.com/articles/css-architecture/ 
 [2]: http://bem.info/ "by Yandex"

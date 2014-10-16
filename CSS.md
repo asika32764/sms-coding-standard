@@ -5,7 +5,7 @@ We will try to adopt object-oriented CSS methodology in this draft.
 
 High-Level Principle
 --------------------
-### Good CSS Architecture [1]
+### Good CSS Architecture [[1]]
 - Predictable 
 - Reusable 
 - Maintainable 
@@ -19,7 +19,7 @@ Commenting
 
 Naming Convention
 -----------------
-A good naming convention will help your and your team [3]
+A good naming convention will help your and your team [[3]]
   
 - what type of thing a class does;
 - where a class can be used;
@@ -27,20 +27,20 @@ A good naming convention will help your and your team [3]
 
 ### BEM Methodology
 #### Introduction
-BEM - meaning blocks, elements and modifiers - is a front-end naming methodologies introduced by Yandex [2]. The architecture 
+BEM - meaning blocks, elements and modifiers - is a front-end naming methodologies introduced by Yandex [[2]]. The architecture 
 allows you maintaining your project with more flexibility and mantainability in a schematic manner. 
 The point of OOCSS is to tell other developers what piece of markup is doing by looking its name.
 You can easily understand the relationship of a child element and its precedent block.  
 
 #### Blocks
-Block was a part of a page design or layout whose specific and unique meaning was defined either semantically or visually [8]. Block is a visual and functional component of the interface. It is reusable and should be independently existed.
+Block was a part of a page design or layout whose specific and unique meaning was defined either semantically or visually [[8]]. Block is a visual and functional component of the interface. It is reusable and should be independently existed.
 
 For example, Menu Block, Logo Block, Search Block, Auth Block.
 
 <img src="images/blocks-example.png" alt="Blocks example" style="width: 200px;"/>
 
 ##### Naming Rule
-Naming of blocks is quite simple. As long as the block is self-explaining. Single dash (-) is allowed if needed. (This could be alter with camelCase naming [10], wait for further discussion) 
+Naming of blocks is quite simple. As long as the block is self-explaining. Single dash (-) is allowed if needed. (This could be alter with camelCase naming [[10]], wait for further discussion) 
 
 - ```.button```
 - ```.text-field```
@@ -177,6 +177,15 @@ This will output:
 .block__element--modifier {}
 ```
 
+##### Real-World Frameworks Implemented in BEM style
+Adobe Topcoat
+
+http://topcoat.io/
+
+inuit.css - Powerful, scalable, Sass-based, BEM, OOCSS framework.
+
+https://github.com/csswizardry/inuit.css
+
 #### Downside
 ##### Ugly?!
 I know.
@@ -201,9 +210,9 @@ Then what if someone forget to include ```.btn```?
 Since the merit of BEM is to isolate every visual block. Your CSS might end up with tons of modifier classes when you find yourself with 10 different link styles, 12 shades of blue, 18 subtly different button styles[11] etc..
  
 #### Future Methodology
-Don't like '__-__--_-__-'?
+Don't like '__-__---_-__-'?
 
-There is a promising elegant solution called <b>AM - Attribute Modules for CSS</b>[11][12], I highly recommend you read through it.
+There is a promising elegant solution called <b>AM - Attribute Modules for CSS</b>[[11]] [[12]], I highly recommend you read through it.
 
  
 Credits
@@ -220,6 +229,8 @@ Credits
 10. https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#components
 11. http://glenmaddern.com/articles/introducing-am-css
 12. http://amcss.github.io/
+13. http://topcoat.io/
+14. http://nicolasgallagher.com/about-html-semantics-front-end-architecture/
 
 [1]:  http://philipwalton.com/articles/css-architecture/ 
 [2]:  http://bem.info/ "by Yandex"
@@ -233,3 +244,4 @@ Credits
 [10]: https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#components
 [11]: http://glenmaddern.com/articles/introducing-am-css
 [12]: http://amcss.github.io/
+[13]: http://topcoat.io/

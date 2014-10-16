@@ -40,7 +40,7 @@ For example, Menu Block, Logo Block, Search Block, Auth Block.
 <img src="images/blocks-example.png" alt="Blocks example" style="width: 200px;"/>
 
 ##### Naming Rule
-Naming of blocks is quite simple. As long as the block is self-explaining. Single dash (-) is allowed if needed. 
+Naming of blocks is quite simple. As long as the block is self-explaining. Single dash (-) is allowed if needed. (This could be alter with camelCase naming [10], wait for further discussion) 
 
 - ```.button```
 - ```.text-field```
@@ -176,8 +176,35 @@ This will output:
 .block__element {}
 .block__element--modifier {}
 ```
+
+#### Downside
+##### Ugly?!
+I know.
+
+But after all, it's all about consistency, readability, and maintainability.
+
+Whilst the CSS language doesn't actually allow object-oriented programming, following a syntax structure like BEM can still enforce the consistency between projects.
+Without consistency, taking-off the projects other people hand to you may cause you spending more time on trying to figure out what their code really does.
+
+For example, one might be curious what's the difference between '2-3 classes chained together' versus '2-3 parts separated by dashes and underscores(uhhh)'? 
+
+```html
+<a class='btn btn-large'>
+```
+
+The former one implied that there might be 2-3 different classes, and this will be confusing to future maintainers because
+they won't understand why there are 3 classes on an element and the relationship among classes is unclear.
+In our example is whether ```btn-large``` is sufficient on its own, or whether it depends on the class btn being present? Is the base style defined in ```.btn``` only or both in ```.btn, .btn-large```?
+Then what if someone forget to include ```.btn```?
+
+##### Fragmentation
+Since the merit of BEM is to isolate every visual block. Your CSS might end up with tons of modifier classes when you find yourself with 10 different link styles, 12 shades of blue, 18 subtly different button styles[11] etc..
  
-#### Ugly?!
+#### Future Methodology
+Don't like '__-__--_-__-'?
+
+There is a promising elegant solution called <b>AM - Attribute Modules for CSS</b>[11][12], I highly recommend you read through it.
+
  
 Credits
 -------
@@ -189,12 +216,20 @@ Credits
 6. http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/
 7. http://www.slideshare.net/VarvaraStepanova/bem-it-introduction-to-bem-methodology
 8. http://www.smashingmagazine.com/2013/02/21/the-history-of-the-bem-methodology/
+9. http://www.sitepoint.com/css-sass-styleguide/
+10. https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#components
+11. http://glenmaddern.com/articles/introducing-am-css
+12. http://amcss.github.io/
 
-[1]: http://philipwalton.com/articles/css-architecture/ 
-[2]: http://bem.info/ "by Yandex"
-[3]: http://cssguidelin.es/
-[4]: http://www.slideshare.net/kurotanshi/css-oocss-smacss-bem
-[5]: https://github.com/bjankord/CSS-Components-Modifiers-And-Subcomponents-Collection
-[6]: http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/
-[7]: http://www.slideshare.net/VarvaraStepanova/bem-it-introduction-to-bem-methodology
-[8]: http://www.smashingmagazine.com/2013/02/21/the-history-of-the-bem-methodology/
+[1]:  http://philipwalton.com/articles/css-architecture/ 
+[2]:  http://bem.info/ "by Yandex"
+[3]:  http://cssguidelin.es/
+[4]:  http://www.slideshare.net/kurotanshi/css-oocss-smacss-bem
+[5]:  https://github.com/bjankord/CSS-Components-Modifiers-And-Subcomponents-Collection
+[6]:  http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/
+[7]:  http://www.slideshare.net/VarvaraStepanova/bem-it-introduction-to-bem-methodology
+[8]:  http://www.smashingmagazine.com/2013/02/21/the-history-of-the-bem-methodology/
+[9]:  http://www.sitepoint.com/css-sass-styleguide/
+[10]: https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md#components
+[11]: http://glenmaddern.com/articles/introducing-am-css
+[12]: http://amcss.github.io/

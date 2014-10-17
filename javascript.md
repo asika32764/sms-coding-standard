@@ -291,6 +291,27 @@ do {
 } while (flower)
 ```
 
+### Switch 範例
+
+Case 與判斷內容間空一格，判斷式與後方冒號之間不空格。
+
+Case 內容程式碼與 break 皆內縮一排。
+
+``` javascript
+switch (foo) {
+    case 'bar':
+        // Code...
+        break;
+
+    case 'baz':
+        // Code...
+        break;
+
+    default:
+        // Code...
+}
+```
+
 ## 三元運算子
 
 在下列情況使用三元運算子:

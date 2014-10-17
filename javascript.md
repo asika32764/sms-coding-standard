@@ -139,7 +139,7 @@ var myObj = new Object;
 var myObj = {};
 ```
 
-宣告物件並對屬性附值時，其分號`:`之前不應空格，之後則需要空一格：
+宣告物件並對屬性附值時，其冒號`:`之前不應空格，之後則需要空一格：
 
 ``` javascript
 var obj = {foo: bar, baz: yoo};

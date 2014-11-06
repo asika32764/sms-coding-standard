@@ -1,21 +1,88 @@
 SMS-CSS-Guidelines
 ==================
-A CSS draft guidelines to discuss. 
-We will try to adopt object-oriented CSS methodology in this draft.
+A CSS draft guidelines to discuss.
+在這份 CSS 指引中我們會嘗試採用物件導向 CSS 設計(OOCSS)，並大量使用 Joomla Coding Standard 中所提供的 CSS 指引。
+
 
 High-Level Principle
 --------------------
 ### Good CSS Architecture [[1]]
-- Predictable 
-- Reusable 
-- Maintainable 
-- Scalable
+- 可預測 Predictable 
+- 可重複使用 Reusable 
+- 考維護性 Maintainable 
+- 可擴充 Scalable
 
 Syntax and Formatting
 ---------------------
 
 Commenting
 ----------
+
+在 SMS 中，專案數量龐大，詳細的註解有助於在不同的專案間快速切換與理解。加上因為 CSS 語言特性的關係，CSS 有許多情況是無法立即被瞭解的，舉例來說：
+
+- 當你的這段 CSS 程式碼相依於其他 CSS 的時候;
+- 當你改變這段 CSS 會在何處照成影響;
+- 這段 CSS 還被使用在什麼地方;
+- 作者希望這段 CSS 
+
+總結來說，你必須對那些無法從該程式碼片段中一眼就了解的事。舉例來說，你不需要針對 ```color: red;``` 作註解。
+
+
+
+
+### 主要段落
+主要的程式碼段落必須以完整的註解區塊作為開頭，例如：
+
+```css
+/* ==========================================================================
+   PRIMARY NAVIGATION
+   ========================================================================== */
+```
+
+### 次要段落
+次要段落須以開放式的註解區塊為開頭：
+
+```css
+/* Mobile navigation
+   ========================================================================== */
+```
+
+### 長篇幅文字註解
+```css
+/**
+ * 長篇幅文字註解描述使用 Doxygen 風格的註解格式,  
+ *
+ * 長篇幅的文字是用來註解不能簡單被瞭解的片段：不同的狀態，排列組合，條件，使用方式等等。
+ *
+ * TODO: 這是一個註解區塊中 todo 的範例，描述之後需要被完成的項目。
+ *   一行應小於 80 個字元，換行之後須以兩個空白作為縮排開頭
+ */
+``` 
+
+### Extend Style
+在 OOCSS 中不同的 CSS 元件可能被放在不同的檔案裡，你可能會遇到此某兩個 component 有互相關聯的情形。如，某一個 button 的 bass class 在另一
+個檔案中被新的 button 所擴充加上新的 style，須在兩邊檔案都寫上註解。如下：
+
+在 Base Object 的檔案中：
+```css
+/**
+ * Extend `.btn {}` in _components.buttons.scss.
+ */
+
+.btn {}
+```
+
+在 擴充的主題檔案中：
+```css
+/**
+ * These rules extend `.btn {}` in _objects.buttons.scss.
+ */
+
+.btn--positive {}
+
+.btn--negative {}
+```
+
 
 Naming Convention
 -----------------
@@ -113,7 +180,7 @@ If the name name of that modifier is too long, also separate it with double hyph
 HTML Example:
 ```html
 <ul class="menu">
-  <li class="menu__item--promo">
+  <li class="menu__item menu__item--promo">
     <a href="#">foo</a>
   </li>
   <li class="menu__item">

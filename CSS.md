@@ -13,11 +13,164 @@ High-Level Principle
 - 可擴充 Scalable
 
 Syntax and Formatting
----------------------
+-------------------------
+### 樣式屬性格式
+每一個屬性都應該存在獨立的一行，並縮排一個層級。冒號之前不應該有空白字元，但須後綴一空白字元。所有的樣式屬性須以分號 (;) 作為結尾。
+```css
+/* 正確 */
+.example {
+    background: black;
+    color: #fff;
+}
+
+/* 錯誤 - 冒號後面沒有後綴空白 */
+.example {
+    background:black;
+    color:#fff;
+}
+
+/* 錯誤 - 沒有以分號作為結尾 */
+.example {
+    background: black;
+    color: #fff
+}
+```
+
+### 縮排
+以4個空白(spaces)作為縮排。
+
+```css
+/* 正確 */
+.example {
+	color: #000;
+	visibility: hidden;
+}
+
+/* 錯誤 - 寫在同一行 */
+.example {color: #000; visibility: hidden;}
+```
+
+### 巢狀結構
+LESS/SCSS 等等的 Pre-compiled CSS 允許巢狀結構，在巢狀結構中，其子選擇器還有樣式規則都應該縮排(4spaces)。巢狀結構的頭尾都應以一行空行作為間隔。
+```css
+/* 正確 */
+.example {
+
+  > li {
+    float: none;
+
+	+ li {
+		margin-top: 2px;
+		margin-left: 0;
+	}
+
+  }
+
+}
+```
+
+### 對齊
+
+#### 選擇器及宣告
+選擇器之後的左大括號與右大括號須分別獨立存在於新的一行，且應與左大括號處於相同的縮排。
+
+```css
+/* 正確 */
+.example
+{
+    color: #fff;
+}
+
+/* 錯誤 - 右大括號的位置錯了，沒有正確縮排 */
+.example {
+    color: #fff;
+    }
+```
+
+相關的選擇器在同一行，不相關的選擇器在新的一行：
+
+```css
+.foo, .foo--bar,
+.baz {
+    display: block;
+}
+```
+
+#### 樣式宣告對齊
+同類型或類似的樣式宣告，建議使用空白來縮排對齊，這對可以例如：
+
+```css
+.foo {
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+}
+
+.bar {
+    position: absolute;
+    top:    0;
+    right:  0;
+    bottom: 0;
+    left:   0;
+    margin-right: -10px;
+    margin-left:  -10px;
+    padding-right: 10px;
+    padding-left:  10px;
+}
+```
+
+### HEX 值
+HEX 值應該使用小寫並以最小縮寫宣告：
+
+```css
+/* 正確 */
+.example {
+    color: #eee;
+}
+
+/* 錯誤 */
+.example {
+    color: #EEEEEE;
+}
+```
+
+### HTML 屬性選擇器
+屬性選擇器須以雙引號包含。
+
+```css
+/* 正確 */
+input[type="button"] {
+    ...
+}
+
+/* 錯誤 - 沒有雙引號 */
+input[type=button] {
+    ...
+}
+
+/* 錯誤 - 使用單引號 */
+input[type='button'] {
+    ...
+}
+```
+
+### 零值的單位
+零值不應該使用單位。
+
+```css
+/* 正確 */
+.example {
+   padding: 0;
+}
+
+/* 錯誤 - 使用單位 */
+.example {
+   padding: 0px;
+}
+```
 
 Commenting
 ----------
-
 在 SMS 中，專案數量龐大，詳細的註解有助於在不同的專案間快速切換與理解。加上因為 CSS 語言特性的關係，CSS 有許多情況是無法立即被瞭解的，舉例來說：
 
 - 當你的這段 CSS 程式碼相依於其他 CSS 的時候;
@@ -26,9 +179,6 @@ Commenting
 - 作者希望這段 CSS 
 
 總結來說，你必須對那些無法從該程式碼片段中一眼就了解的事。舉例來說，你不需要針對 ```color: red;``` 作註解。
-
-
-
 
 ### 主要段落
 主要的程式碼段落必須以完整的註解區塊作為開頭，例如：
@@ -82,7 +232,6 @@ Commenting
 
 .btn--negative {}
 ```
-
 
 Naming Convention
 -----------------

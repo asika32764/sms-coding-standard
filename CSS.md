@@ -430,6 +430,73 @@ Don't like '__-__---_-__-'?
 
 There is a promising elegant solution called <b>AM - Attribute Modules for CSS</b>[[11]] [[12]], I highly recommend you read through it.
 
+元件的 Modifiers[[14]]
+---------------
+一個 Base 元件通常有各種不同具有些微差異的 Styles，例如：Bootstrap 的 ```.btn``` 有 ```.btn-large``` 和 ```.btn-small``` 等等的變化。
+有兩個主流的做法，分別是 "single-class" 和 "multi-class" 的 pattern。兩種 Class 各有優缺點。
+
+### "single-class" 模式
+```css
+.btn, .btn-primary { /* button base styles */ }
+.btn-primary { /* styles specific to primary button */ }
+```
+```html
+<button class="btn">Default</button>
+<button class="btn-primary">Login</button>
+```
+在 "single-class" 中，同樣的 style 被定義在多個 classes 上，好處是 html 的元素只需使用單一的 class。
+
+### "multi-class" 模式
+```css
+.btn { /* button base styles */ }
+.btn-primary { /* styles specific to primary button */ }
+```
+```html
+<button class="btn">Default</button>
+<button class="btn btn-primary">Login</button>
+```
+
+"multi-class"，是以模組化的方式將 base style 和 modifiers 分別定義在不同 classes 上，一個元件需要同時使用多個 classes。是比較適合擴充的模式。
+
+### 延伸
+一般使用上我們推薦 "multi-class" 的模式(如：Bootstrap)，原因是因為可將 css 程式碼物件導向化使其易於維護並且避免 "single-class" 中程式碼片段重複的問題。
+然而隨著 Pre-processor 的流行以及 OOCSS 的命名規則出現，其實避免相同的樣式片段重複出現的問題。
+
+由於 SMS Taiwan 使用 LESS，建議使用 ```extend()``` 的做法。
+
+#### Pre-Processor 以 LESS 為例
+透過 ```extend()``` 的 mixin，讓所有的子 Component/Element 都能繼承 base class。
+```css
+.btn{
+  border: 2px solid #fff;
+  …
+}
+
+.btn--large{
+  &: extend(.btn all)
+  font-size: 20px;
+  …
+}
+```
+
+### css 選擇運算子 ```^=```
+選擇運算子 ```^=``` 可以選擇以等號後字串為開頭的參數，如：
+
+```
+// Base Class (以 btn 為開頭的 class, ex: btn--blue, btn--large) 
+[class^="btn"] {
+  border: 1px solid #666;
+  padding: .3rem .6rem;
+  display: inline-block;
+}
+
+// Modifiers
+.btn--blue {
+  background-color: lightblue;
+  color: #fff;
+  border: 1px solid #cbcbcb;
+}
+```
  
 Credits
 -------
@@ -461,3 +528,4 @@ Credits
 [11]: http://glenmaddern.com/articles/introducing-am-css
 [12]: http://amcss.github.io/
 [13]: http://topcoat.io/
+[14]: http://nicolasgallagher.com/about-html-semantics-front-end-architecture/

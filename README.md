@@ -10,6 +10,9 @@
 
 請參照 [Joomla-Coding-Stanard-Chinese](https://github.com/asika32764/Joomla-Coding-Stanard-Chinese)
 
+## 其他編碼標準
+
+- [Javascript](javascript.md)
 
 ## 檔案格式
 

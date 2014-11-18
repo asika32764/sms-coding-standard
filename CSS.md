@@ -235,28 +235,27 @@ Commenting
 
 Naming Convention
 -----------------
-A good naming convention will help your and your team [[3]]
-  
-- what type of thing a class does;
-- where a class can be used;
-- what (else) a class might be related to.
+好的命名規則，可以幫助你和你的團隊快速瞭解 [[3]]：
 
-### BEM Methodology
-#### Introduction
-BEM - meaning blocks, elements and modifiers - is a front-end naming methodologies introduced by Yandex [[2]]. The architecture 
-allows you maintaining your project with more flexibility and mantainability in a schematic manner. 
-The point of OOCSS is to tell other developers what piece of markup is doing by looking its name.
-You can easily understand the relationship of a child element and its precedent block.  
+- 這個 class 在做什麼事
+- 可以在什麼情境使用此 class
+- 這個 class 可能跟什麼有關聯 
 
-#### Blocks
-Block was a part of a page design or layout whose specific and unique meaning was defined either semantically or visually [[8]]. Block is a visual and functional component of the interface. It is reusable and should be independently existed.
+### BEM 方法論
+#### 簡介
+BEM - blocks, elements 和 modifiers 的縮寫 - 是前端命名的方法論之一，由 Yandex 所提出 [[2]]。
+BEM 的語意化(schematic)的命名和物件導向架構，讓程式碼在維護上擁有更多的擴充彈性與可讀性。
+OOCSS 的精神，是讓不同的開發者可以透過觀察 markup 的命名方式快速地了解到某一段程式碼的功用。
+開發者也可以不費力的看出子元件跟其父原件之間的關聯性。
 
-For example, Menu Block, Logo Block, Search Block, Auth Block.
+#### 區塊 (Blocks)
+區塊 (Blocks) 是網頁面設計上的一個區塊，該區塊在視覺上，功能上或是語意結構上有其特別的意義 [[8]]。Blocks 可以重複使用，並且獨立存在不和其他元件有關聯。 
+例如：Menu Block, Logo Block, Search Block, Auth Block.
 
 <img src="images/blocks-example.png" alt="Blocks example" style="width: 200px;"/>
 
-##### Naming Rule
-Naming of blocks is quite simple. As long as the block is self-explaining. Single dash (-) is allowed if needed. (This could be alter with camelCase naming [[10]], wait for further discussion) 
+##### 命名規則
+Block 的命名方式很簡單。只要其命名是具有意義且可以自我說明 (self-explaining) 的即可。必要的話可以以破折號 (dash) 隔開，也有使用駝峰式命名的做法 [[10]]，待討論。
 
 - ```.button```
 - ```.text-field```
@@ -264,14 +263,14 @@ Naming of blocks is quite simple. As long as the block is self-explaining. Singl
 - ```.heading```
 - ```.menu```
 
-Or with prefix, ```b-``` for block, ```c-``` or ```j-``` for js block and ```g-``` for global etc.. Prefix is optional.
+或是可以自定義前綴字元, ```b-``` 代表 block，```c-```、```js-``` 或 ```j-``` 代表 js block 以及 ```g-``` 代表 global 等等。前綴字元的使用是選擇性的.
 - ```.b-button```
 - ```.b-text-field```
 - ```.b-flyout```
 - ```.b-heading```
 - ```.b-menu```
 
-HTML Example:
+HTML 範例:
 ```html
 <ul class="menu">
   <li>
@@ -281,15 +280,14 @@ HTML Example:
 </ul>  
 ```
 
-#### Elements
-Element is a component part of block. It only exists within block and can not be used on its own outside of the block.
+#### 元素 (Elements)
+元素 (Elements) 是隸屬於區塊下的元素組成，元素只能存在於區塊之內，不能在其所屬之區塊結構外面所使用。
+例如：Menu block 有 menut items, heading block 則有 logo 元素和 slogan 元素。
  
-For example, Menu block has menu items, heading block has logo element and slogan element.
-
 <img src="images/elements-example.png" alt="Elements example" style="width: 200px;"/>
 
-##### Naming Rule 
-Element use double underline(__) as a prefix. For example ```.block__element``` represents a descendent of ```.block```.
+##### 命名規則
+元素的命名規則為在前綴兩個底線 (__)，雙底線之前是區塊命名。例如 ```.block__element``` 代表 element 是屬於 ```.block``` 的子元素。
 
 - ```.button__icon```
 - ```.text-field__label```
@@ -297,7 +295,7 @@ Element use double underline(__) as a prefix. For example ```.block__element``` 
 - ```.heading__logo```
 - ```.menu__item```
 
-HTML Example:
+HTML 範例:
 ```html
 <ul class="menu">
   <li class="menu__item">
@@ -309,16 +307,15 @@ HTML Example:
 </ul>  
 ```
 
-#### Modifiers
- ```Modifier``` in BEM is similar to ```State``` in SMACSS. It is used to defined the state of element or block.
- Multiple modifiers can be used on the same block simultaneously. 
- For example, a button block may have multiple states such as enabled, disabled or hover. Skin and theme could also be a modifier: shadowed, bordered etc..
- 
- <img src="images/modifiers-example.png" alt="Modifiers example" style="width: 200px;"/>
+#### 修改器 (Modifiers)
+BEM 的修改器 (Modifier) 類似 SMACSS 的"狀態"。修改器是拿來定義元素或區塊的狀態。一個區塊可以同時擁有不同的修改器。
+例如，一個按鈕可以有不同的狀態，分別是 "enabled"、"disabled" 或 "hover"。除了狀態之外，區塊的皮膚 (skin) 或主題 (theme) 也可以是修改器的一種：陰影、邊框等等。
 
-##### Naming Rule
-For modifier, we use double hyphens(--) as prefix which was first introduced in this article [MindBEMding][6]. 
-If the name name of that modifier is too long, also separate it with double hyphens. (This could be alter, wait for further discussion.)
+<img src="images/modifiers-example.png" alt="Modifiers example" style="width: 200px;"/>
+
+##### 命名規則
+修改器的命名我們使用兩個破折號 (--) 作為前綴字元 ([MindBEMding][6])。
+如果修改器的名字太長，必要時可以使用一個破折號隔開。
 
 - ```.button--theme-green```
 - ```.text-field--disabled```
@@ -326,7 +323,7 @@ If the name name of that modifier is too long, also separate it with double hyph
 - ```.heading--dark--background```
 - ```.menu__item--promo```
 
-HTML Example:
+HTML 範例:
 ```html
 <ul class="menu">
   <li class="menu__item menu__item--promo">
@@ -338,46 +335,39 @@ HTML Example:
 </ul>  
 ```
 
-#### Quick Summarize
+#### 小結
 - ```.block {…}```
 - ```.block—-modifier {…}``` 
 - ```.block__element {…}```
 - ```.block__element—modifier {…}```
 
-#### More Sophisticated Examples
+#### 延伸 Tips
 
-##### Drop tag names and IDs
-By following BEM (or any other methodology), we no longer need to use tag names and IDs as selectors. In fact, 
-we should never use tag names and IDs, this may result in faster selectors and faster render time.
+##### 避免使用 HTML tag 名稱以及 IDs 作為選擇器
+我們應該盡量避免使用 HTML tag 名稱作為選擇器，並完全避免使用 IDs 作為選擇器。避免使用 HTML tag 的原因是希望讓 CSS 跟 HTML 解耦合，讓其不依賴 HTML 結構以增加可讀性以及維護性。
+不使用 IDs 作為選擇器是因為一個 ID 是獨立且唯一存在於 HTML Markup 中，如果用了 ID 當選擇器，代表該 CSS 程式碼片段不能被重複使用。
 
-##### Reuse same semantics block on any tag
+##### 可以重複使用同樣區塊在任意的 tag 上 
 ```html
 <div class="block"></div>
 <span class="block"></span>
 <table class="block"></table>
 ```
 
-##### CSS Specificity problem solved
-CSS selector has priority rules, that is, by specifity first, then by rule order. Oftenly, 
-overwriting other developers' selector will result like this due to specificity:
- 
-```css
-#jsn_form_5 .form-actions .form-extra-message {
-  font-size: 1.4em;
-  color: #c25b5b;
-  margin: 6px 0;
-}
-#jsn_form_7 .form-actions .form-extra-message {
-  font-size: 1.4em;
-  color: #c25b5b;
-  margin: 6px 0;
-}
-```
+##### 解決了 CSS 選擇器的優先性 (specificity) 問題
+BEM 建議將 Modifiers 使用如下 ```<div class="block block__mod">``` [[16]]，並獨立為 ```.block__mod``` 寫 style。
 
-Thanks to the OOCSS methodologies, blocks are independent and decouple with html tags.  
+舉例來說：
+```html
+<div class="header">
+  <button class="button active">
+</div>
+```
+如果你用的是組合的選擇器 (Combined Selectors) 寫法 ```.button.active``` 會跟透過結合其父結構 ```.header .button```來覆寫 style 時擁有一樣的優先性，造成複寫的困難。
+將 modifiers 分開地應可以避面這樣的問題。
 
 ##### LESS
-We may write our less code in nested way:
+透過 Pre-processor 語言的特性，我們可以使用巢狀結構來寫：
 ```sass
 .block {
     &__element {
@@ -386,7 +376,7 @@ We may write our less code in nested way:
     }
 }
 ```
-This will output:
+這會產生:
 ```css
 .block {}
 .block__element {}
@@ -402,33 +392,30 @@ inuit.css - Powerful, scalable, Sass-based, BEM, OOCSS framework.
 
 https://github.com/csswizardry/inuit.css
 
-#### Downside
-##### Ugly?!
-I know.
+#### 壞處
+##### 長很醜?!
+是的，我懂.
 
-But after all, it's all about consistency, readability, and maintainability.
+但 OOCSS 其背後目的, 是為了讓各個不同的開發者在開發程式時都能維持一致性，可讀性，以及可維護性。
 
-Whilst the CSS language doesn't actually allow object-oriented programming, following a syntax structure like BEM can still enforce the consistency between projects.
-Without consistency, taking-off the projects other people hand to you may cause you spending more time on trying to figure out what their code really does.
+因為 CSS 語言及架構特性並不是真正的物件導向語言，使用像 BEM 此類的方法論，可以加強不同專案間的一致性。
+如果沒有一致性，接手別人的專案會讓你花上許多時間在看懂對方的程式片段真正的目的。
 
-For example, one might be curious what's the difference between '2-3 classes chained together' versus '2-3 parts separated by dashes and underscores(uhhh)'? 
+例如：
+```html
+<a class='foo bar baz'>
+```
+如果我們有 2-3 種不同的 classes，這會對未來的維護者造成混肴，因為 class 之間的關係並不明顯。
 
 ```html
 <a class='btn btn-large'>
 ```
+在這個範例中 ```btn-large``` 是否能獨立使用，或著需要相依於 ```btn``` 類別？Base style 只被定義在 ```.btn``` 或者是每個類別都共有 ```.btn, .btn-large```？如果有開發人員忘了加上```.btn```會發生什麼事？
 
-The former one implied that there might be 2-3 different classes, and this will be confusing to future maintainers because
-they won't understand why there are 3 classes on an element and the relationship among classes is unclear.
-In our example is whether ```btn-large``` is sufficient on its own, or whether it depends on the class btn being present? Is the base style defined in ```.btn``` only or both in ```.btn, .btn-large```?
-Then what if someone forget to include ```.btn```?
-
-##### Fragmentation
-Since the merit of BEM is to isolate every visual block. Your CSS might end up with tons of modifier classes when you find yourself with 10 different link styles, 12 shades of blue, 18 subtly different button styles[11] etc..
- 
 #### Future Methodology
-Don't like '__-__---_-__-'?
+覺得 '__-__---_-__-' 很醜?
 
-There is a promising elegant solution called <b>AM - Attribute Modules for CSS</b>[[11]] [[12]], I highly recommend you read through it.
+有一些新的方法論利用 css ```比較選擇器``` 的特性來操作 ```data-*``` 屬性，稱作 <b>AM - Attribute Modules for CSS</b>[[11]] [[12]]，推薦閱讀。
 
 元件的 Modifiers[[14]]
 ---------------
@@ -460,7 +447,7 @@ There is a promising elegant solution called <b>AM - Attribute Modules for CSS</
 
 ### 延伸
 一般使用上我們推薦 "multi-class" 的模式(如：Bootstrap)，原因是因為可將 css 程式碼物件導向化使其易於維護並且避免 "single-class" 中程式碼片段重複的問題。
-然而隨著 Pre-processor 的流行以及 OOCSS 的命名規則出現，其實避免相同的樣式片段重複出現的問題。
+然而隨著 Pre-processor 的流行以及 OOCSS 的命名規則出現，其實可以避免相同的樣式片段重複出現的問題。
 
 由於 SMS Taiwan 使用 LESS，建議使用 ```extend()``` 的做法。
 
@@ -514,6 +501,8 @@ Credits
 12. http://amcss.github.io/
 13. http://topcoat.io/
 14. http://nicolasgallagher.com/about-html-semantics-front-end-architecture/
+15. http://benfrain.com/multiple-classes-ui-component-variations-wrong/
+16. http://getbem.com/faq/
 
 [1]:  http://philipwalton.com/articles/css-architecture/ 
 [2]:  http://bem.info/ "by Yandex"
@@ -529,3 +518,5 @@ Credits
 [12]: http://amcss.github.io/
 [13]: http://topcoat.io/
 [14]: http://nicolasgallagher.com/about-html-semantics-front-end-architecture/
+[15]: http://benfrain.com/multiple-classes-ui-component-variations-wrong/
+[16]: http://getbem.com/faq/

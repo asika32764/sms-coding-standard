@@ -192,15 +192,17 @@ var myObj = new Object;
 可重複創建實體的物件，我們改用 Prototype 模式來宣告
 
 ``` javascript
-(function ($) {
-
+(function ($) 
+{
     "use strict";
 
-    var MyClass = function(params) {
+    var MyClass = function(params) 
+    {
         // Code...
     }
 
-    MyClass.prototype.flower = function () {
+    MyClass.prototype.flower = function () 
+    {
         // Code...
     };
 

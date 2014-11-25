@@ -184,7 +184,7 @@ var myObj = new Object;
         bar: function() {}
     };
 
-})(jQuery)
+})(jQuery);
 ```
 
 ### 類別式宣告
@@ -196,7 +196,7 @@ var myObj = new Object;
 
     "use strict";
 
-    var MyClass = function() {
+    var MyClass = function(params) {
         // Code...
     }
 
@@ -207,10 +207,10 @@ var myObj = new Object;
     // Push to global
     window.MyClass = window.MyClass || MyClass;
 
-})(jQuery)
+})(jQuery);
 
 // New instance
-var newObject = new MyClass;
+var newObject = new MyClass(params);
 ```
 
 ## 控制結構
@@ -218,12 +218,13 @@ var newObject = new MyClass;
 控制結構中，條件式的中括號與關鍵字之間必須間隔一個空格，每個判斷條件之間的邏輯運算子（如 `&&`）前後需要空一格。最先與最後一個判斷條件跟括號之間不需要空格。
 而判斷式內如果用到比較運算子（如 `<`, `==`），則運算子前後也需要空格。
 
-控制結構所包裹的區塊空間，其開頭大括號與關鍵字和條件式在同一行，但括號前需空一格。結束括號則需自己在新的一行。
+控制結構所包裹的區塊空間，其開頭大括號與結束括號皆需自己在新的一行。
 
 範例：
 
 ``` javascript
-if (foo == 'bar' && baz < 5) {
+if (foo == 'bar' && baz < 5) 
+{
     // Code...
 }
 ```
@@ -232,19 +233,25 @@ if (foo == 'bar' && baz < 5) {
 
 ``` javscript
 if (a == b && c == d && e == f
-    && g == h && j == k) {
+    && g == h && j == k) 
+{
     // Code...
 }
 ```
 
-若有多層控制結構，每一層的關鍵字與上一層結束括號和下一層開頭括號在同一行：
+若有多層控制結構，每一層的關鍵字與上一層結束括號和下一層開頭括號皆需獨立換行：
 
 ``` javascript
-if (a == b) {
+if (a == b) 
+{
     // Code...
-} else if (c == d) {
+} 
+else if (c == d) 
+{
     // Code...
-} else {
+} 
+else 
+{
     // Code...
 }
 ```
@@ -259,11 +266,13 @@ if (a == b) alert(1);
 ### for 範例
 
 ``` javascript
-for (i = 0; i < 5; i++) {
+for (i = 0; i < 5; i++) 
+{
     // Code...
 }
 
-for (i in foo) {
+for (i in foo) 
+{
     // Code...
 }
 ```
@@ -271,9 +280,12 @@ for (i in foo) {
 ### Try catch 範例
 
 ``` javasript
-try {
+try 
+{
     // Code...
-} catch (err) {
+} 
+catch (err) 
+{
     console.log(err);
 }
 ```
@@ -281,12 +293,14 @@ try {
 ### While 範例
 
 ``` javascript
-while (flower) {
+while (flower) 
+{
     // Code...
 }
 
 // Do While
-do {
+do 
+{
     // Code...
 } while (flower)
 ```
@@ -298,7 +312,8 @@ Case 與判斷內容間空一格，判斷式與後方冒號之間不空格。
 Case 內容程式碼與 break 皆內縮一排。
 
 ``` javascript
-switch (foo) {
+switch (foo) 
+{
     case 'bar':
         // Code...
         break;
@@ -326,9 +341,12 @@ smsRocks ? 'This is true' : 'else it is false';
 否則就使用標準語法
 
 ``` javascript
-if (condition) {
+if (condition) 
+{
 	// statements
-} else {
+} 
+else 
+{
 	// statements
 }
 ```
@@ -340,18 +358,22 @@ if (condition) {
 函式宣告時，函式名稱或 `function` 關鍵字與參數區塊開頭括號之間不空格。參數區塊內與開頭結尾參數之間無空格。多個參數時，參數之間用逗號隔開，
 逗號前方不空格，後方空一格。
 
-採用變數宣告時，結尾必須後綴分號，一般宣告時則不需要。
+包裹函式邏輯區塊的大括號，開頭結尾皆需獨立換行。
+
+採用變數宣告時，結尾必須後綴分號，一般宣告時則不需要分號。
 
 範例：
 
 ``` javascript
 // 一般宣告
-function foo(bar, baz) {
+function foo(bar, baz) 
+{
     // Code...
 }
 
 // 變數宣告
-var flower = function(sakura, olive) {
+var flower = function(sakura, olive) 
+{
     // Code...
 };
 ```
@@ -360,7 +382,8 @@ var flower = function(sakura, olive) {
 
 ``` javascript
 var flower = function(sakura, olive, sunflower,
-    rose, orange) {
+    rose, orange) 
+{
     // Code...
 };
 ```

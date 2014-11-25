@@ -179,9 +179,11 @@ var myObj = new Object;
 
     window.MyObject = window.MyObject || {
 
-        foo: function() {},
+        foo: function()
+        {},
 
-        bar: function() {}
+        bar: function() 
+        {}
     };
 
 })(jQuery);

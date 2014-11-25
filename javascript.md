@@ -170,11 +170,11 @@ var myObj = new Object;
 
 若要使用 jQuery，在物件外統一使用 `jQuery` ，傳進 Sandbox 之後方可改名為 `$`
 
-一律使用 `use strict` 模式，strict 宣告的前後可空一行。
+一律使用 `use strict` 模式，strict 宣告的後方空一行。
 
 ``` javascript
-(function ($) {
-
+(function ($) 
+{
     "use strict";
 
     window.MyObject = window.MyObject || {

@@ -438,9 +438,9 @@ $('.someElement')
 
 - 區塊註解應用於描述函式、物件與變數時。
 - 註解起始字元應有兩個星號 `/**` 並放在第一行註解上方，註解結束字元 `*/` 應放在最後一行註解下方。
-- 每一行註解應加上 1 個星號後綴一個空白
-- 註解最少應包含敘述、參數與回傳值三中內容並依照這個順序排列。若該函式無參數，則可以省略。
-- 敘述其他內容之間應該要有一空行
+- 每一行註解應加上 1 個星號，星號前後各加綴一個空白
+- 註解最少應包含敘述、參數與回傳值三種內容並依照這個順序排列。若該函式無參數，則可以省略 `@params`。
+- 敘述與其他內容之間應該要有一空行
 
 範例：
 
@@ -448,10 +448,10 @@ $('.someElement')
 /**
  * This is my function.
  *
- * @params {HtmlElement} html A html element object.
+ * @params  {HtmlElement}  html  A html element object.
  *
- * @return {Object}
+ * @return  {Object}
  */
 ```
 
-詳細 JS Docblock 內容目前以 PHPStorm 自動產生的樣式為主。
+詳細 JS Docblock 內容目前以 PHPStorm 自動產生的樣式為主，具體格式可約略參考 [YUI Doc](http://yui.github.io/yuidoc/syntax/index.html)，但我們的格式會要求排版與對齊。

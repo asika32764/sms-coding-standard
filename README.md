@@ -277,6 +277,36 @@ if ($avoid)
 }
 ```
 
+## 參照
+
+當使用變數參照時，參照符號應該距離等號一個空白字元，且跟後面的變數緊鄰，沒有空白。
+
+範例:
+
+```php
+$ref1 = &$this->sql;
+```
+
+> **注意**
+>
+> 在 PHP 5 ，物件不需要參照符號，所有物件皆是參照。
+
+## 字串連接的間距
+
+當使用字串連接時， `.` 符號的左右兩旁應該要有一格空白。例如：
+
+``` php
+$id = 1;
+echo 'index.php?option=com_foo&task=foo.edit&id=' . (int) $id;
+```
+
+多行字串，串接符號應該要在下一行的開頭，左方除了縮排以外不需額外的空格：
+
+``` php
+$id = 1
+echo 'index.php?option=com_foo&task=foo.edit&id=' . (int) $id
+    . '&layout=special';
+```
 
 ## 類別與其成員宣告
 
@@ -406,11 +436,11 @@ class ImageThumb
 陣列元素的指派可稍微排版，當多行時，可用 Tab 縮排。每行跟隨一個都逗號結尾，最後一行可包含逗號，這是 PHP 允許的寫法，對於程式碼 diff 比對時也有所幫助。
 
 範例:
-
+陣列
 ```php
 $options = array(
-	'foo'	=> 'foo',
-	'spam'	=> 'spam',
+	'foo'  => 'foo',
+	'spam' => 'spam',
 );
 ```
 
@@ -605,6 +635,123 @@ if (!is_null((bool) $qoo))
 C 風格的註解通常被用在文件開頭、類別、函式等等的文件標頭。而 C++ 風格單行註解則常用在程式解釋與提醒。註解對於幫助其他開發人員理解程式碼的目的有非常大的幫助，甚至包含您自己也能受惠。當程式碼開始進行複雜操作時，永遠記得要加上註解。
 
 至於 Perl 與 Shell 的井號 (`#`)註解則不建議使用，目前在 PHP 中也不再允許此類註解。
+
+## 區塊註解 （Docblock）
+
+所有 php 檔案文件、函式、類別與方法「一定」需要加註 Docblock。
+
+### 文件表頭
+
+採用 SMS PHPStorm File-Template 內的預設格式：
+
+``` php
+<?php
+/**
+ * Part of {PROJECT_NAME} project.
+ *
+ * @copyright  Copyright (C) 2011 - 2015 {ORGANIZATION}, Inc. All rights reserved.
+ * @license    GNU General Public License version 2 or later; see LICENSE
+ */
+
+```
+
+並根據需要修改 `PROJECT_NAME`、`ORGANIZATION` 與年份。
+
+### 類別區塊註解
+
+包含類別說明與起始版本，版本的 `DEPLOY_VERSION` ，在正式發佈時由 Script 批次取代。範例：
+
+``` php
+/**
+ * Description of this class.
+ *
+ * @since  {DEPLOY_VERSION}
+ */
+class Windwalker
+{
+	// ...
+}
+```
+
+所有標籤標題與內容的距離最小以兩格以上為主（非強制），可依需求自行加上：
+
+- `@link`  參照連結
+- `@note`  注意事項
+- `@see`   參考資料
+- `@deprecated` 被棄用
+
+等常用 phpDoc 標準標籤。
+
+### 函式與方法區塊註解
+
+函式定義需開始並獨立於一新行，開始與結束的括號也需分別被放置於一新行。在負責處理回傳值的程式碼前應插入一空行。
+
+函數定義必須包含註解說明，根據本文件中的註解章節所規範之規則予以撰寫。
+
+-   簡易說明 (必要，結束需空一行)
+-   完整說明 (選填，結束需空一行)
+-   `@param` (若函式有參數則此欄位為必要，並於最後一個`@param`標籤之後新增一空行)
+-   `@return` (必要，結束需空一行，就算無回傳值也要補上 void)
+-   `@throws` 有要丟出的例外 （IDE 會自動補上）
+-   其餘標籤依據字母順序排列。
+
+```php
+/**
+ * An utility method.
+ *
+ * @param   string  $path  The library path in dot notation.
+ *
+ * @return  void
+ *
+ * @since   1.0
+ */
+public function bloom($path)
+{
+	// Body of method.
+}
+```
+
+### 屬性區塊註解
+
+類別屬性註解區塊包含以下必要及非必要欄位，並依照下列順序排列。
+
+-   簡易說明(必要，除非該檔案擁有兩個以上之類別或函數)
+-   `@var` (必要，於該屬性後其後註明屬性種類(property type))
+-   `@deprecated` (選填)
+-   `@since` (選填)
+
+範例：
+
+``` php
+class Foo
+{
+	/**
+	 * Description of Bar.
+	 *
+	 * @var    string
+	 * 
+	 * @since  1.0
+	 */
+	public protected $bar;
+}
+```
+
+### 常數區塊註解
+
+類別內的常數區塊註解並非必要，但可適度補上。範例如下
+
+``` php
+class Foo
+{
+	/**
+	 * Description of Constant.
+	 * 
+	 * @const  string
+	 */
+	const SAKURA = 'sakura';
+}
+```
+
 
 
 

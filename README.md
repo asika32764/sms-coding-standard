@@ -12,7 +12,8 @@
 
 ## 其他編碼標準
 
-- [Javascript](javascript.md)
+- [Javascript 標準](javascript.md)
+- [SQL 建議寫法](sql.md)
 
 ## 檔案格式
 

@@ -18,7 +18,7 @@ SELECT id, title, alias FROM #__table WHERE id = 1;
 
 ``` php
 // Get the database connector.
-$db = JFactory::getDBO();
+$db = JFactory::getDbo();
 
 // Get the query from the database connector.
 $query = $db->getQuery(true);

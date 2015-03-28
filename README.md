@@ -369,7 +369,7 @@ class ContentModelArticle extends JModelLegacy
 
 ### 變數命名原則
 
-在 SMS Taiwan 的專案中，變數優先採用駱駝峰 (Camel) 命名原則。
+在 SMS Taiwan 的專案中，變數優先採用 "studly caps" 風格 (也稱作 "bumpy case" 或 "camel caps")。名稱起始的字母必須是小寫，而每個新單字的首個字母為大寫。
 
 ### 賦值
 

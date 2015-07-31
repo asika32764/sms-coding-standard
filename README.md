@@ -563,7 +563,7 @@ elseif (!$hoo)
 避免多重否定寫法混淆使用者：
 
 ``` php
-if (!is_null((bool) $qoo))
+if (!$allowNull && !(($value !== null) && ($value !== '')))
 {
 }
 ```
